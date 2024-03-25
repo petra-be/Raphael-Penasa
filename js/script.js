@@ -2,19 +2,12 @@
     const lenis = new Lenis({
 		duration: 1.5
 	});
-    lenis.on('scroll', (e) => {
-		
-
-    })
-
+    lenis.on('scroll', (e) => {})
     function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
     }
-
     requestAnimationFrame(raf)
-
-
 
 //GSAP ANIMATIONS
 const element1 = document.querySelector('.loader-content')
@@ -33,7 +26,6 @@ const element10 = document.querySelectorAll('.xxx')
 const element11 = document.querySelectorAll('.a-works-links_menu li')
 const element12 = document.querySelectorAll('.text_other-page')
 const des = document.querySelectorAll('.random_work')
-
 
 var tl1 = gsap.timeline();
  tl1.startTime(1);
@@ -55,19 +47,14 @@ var tl1 = gsap.timeline();
   if (element12) {tl1.fromTo(element12, {opacity: 0}, { opacity: 1, duration: 0.5})} 
   if (des) {tl1.fromTo(des, { opacity: 0}, {  opacity: 1, duration: 0.3})} 
 
-
-
 // TEXT REVEAL EFFECT GREEN
   gsap.registerPlugin(ScrollTrigger)
-
   const splitTypes = document.querySelectorAll('.paragraph_other-page')
   
   splitTypes.forEach((char,i) => {
 	const text = new SplitType(char, { types: 'chars, words'})
-  
-
 	ScrollTrigger.matchMedia({
-	
+		
 	// desktop
 	"(min-width: 602px)": function() {
 		gsap.from(text.chars, {
@@ -80,9 +67,7 @@ var tl1 = gsap.timeline();
 			},
 			opacity: 0.1,
 			stagger: 0.1
-		  })
-  }, 
-  
+		  })}, 
 	// mobile
 	"(max-width: 601px)": function() {
     	gsap.from(text.chars, {
@@ -97,14 +82,10 @@ var tl1 = gsap.timeline();
 			stagger: 0.1
 		  })
   }, 
-  
-	// all 
+  	// all 
 	"all": function() {
-	}
-  
-	});
+	}});
 });
-
 
 //PARALLAX EFFECT
 gsap.utils.toArray('.section-parallax .img-parallax').forEach((section, i) => {
@@ -112,8 +93,7 @@ gsap.utils.toArray('.section-parallax .img-parallax').forEach((section, i) => {
 
 	gsap.fromTo(section, {
 		y: -heightDiff
-	}, {
-		scrollTrigger:{
+	}, {scrollTrigger:{
 			trigger: section,
 			scrub: true
 		},
@@ -122,9 +102,6 @@ gsap.utils.toArray('.section-parallax .img-parallax').forEach((section, i) => {
 	});
 });
 
-
-
-
 // SHUFFLE HOVER EFFECT
 document.addEventListener("DOMContentLoaded", function() {
   const els = [...document.querySelectorAll(".shuffle, .shuffle-effect")];
@@ -132,21 +109,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const doScrambleEffect = (el) => {
     if (isScrambling) return;
-
     isScrambling = true;
     let i = 0;
     const initialText = el.textContent;
-
     const emojiContainer = el.nextElementSibling;
 
     if (el.classList.contains('shuffle-effect') && emojiContainer) {
       const emoji = emojiContainer.querySelector('.emoji');
       if (emoji) {
-        // Ajouter une classe pour agrandir le span
         emoji.classList.add('enlarged');
       }
     }
-
     const shuffleText = () => {
       const shuffled = [...el.textContent]
         .map((a) => ({ sort: Math.random(), value: a }))
@@ -163,13 +136,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if (el.classList.contains('shuffle-effect') && emojiContainer) {
           const emoji = emojiContainer.querySelector('.emoji');
           if (emoji) {
-            // Retirer la classe pour rétrécir le span
             emoji.classList.remove('enlarged');
           }
         }
       }
     };
-
     shuffleText();
   };
 
@@ -182,8 +153,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
 // NEWSLETTER
   $( document ).ready(function() {
     $( ".ne-btn-close" ).click(function() {
@@ -191,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function() {
         $( ".newsletter_front-page" ).toggleClass( "ne-animation-disapear" );
     });
 });
-
 
 // 3D IMAGES EFFECT
 ;(function ($) {
@@ -219,18 +187,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		mouseleave: function () {
 		  $(this).addClass('is-out');
 		} });
-   
 	  return this;
 	};
    })(jQuery);
    
    $('.card').transformHeroes(); 
 
-
 // LIENS NON CLIQUABLE
 $(document).ready(function() {
   $('.no-translation a').on('click', function(event) {
-      event.preventDefault(); // Empêche le comportement par défaut du lien
+      event.preventDefault(); 
   });
 });
 
@@ -288,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function() {
         $(el).on("mouseenter", function () {
           items.forEach((item) => {
             if (item !== el) {
-              // Réduire l'opacité des autres li
               gsap.to(item, { opacity: 0.1 });
             }
           });
@@ -296,7 +261,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         $(el).on("mouseleave", function () {
           items.forEach((item) => {
-            // Rétablir l'opacité à 1 lorsque la souris quitte le li
             gsap.to(item, { opacity: 1 });
           });
         });
@@ -370,7 +334,6 @@ jQuery(document).ready(function($) {
 });
 
 // open chat 
-
 const link = document.querySelector('a[href="#"]');
 const yourElement = document.querySelector('.joinchat');
 const closeButton = document.querySelector('.joinchat__close');
